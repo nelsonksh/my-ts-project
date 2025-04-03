@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx src/index.ts",
+    "dev:watch": "tsx watch src/index.ts"
   },
   "devDependencies": {
     "@types/node": "^22.13.17",
@@ -24,6 +25,7 @@
   "dependencies": {
     "@maestro-org/typescript-sdk": "^1.6.3",
     "@meshsdk/core": "1.9.0-beta.25",
+    "@meshsdk/core-cst": "1.9.0-beta.25",
     "dotenv": "^16.4.7"
   }
 }
