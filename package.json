@@ -24,8 +24,8 @@
   "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6",
   "dependencies": {
     "@maestro-org/typescript-sdk": "^1.6.3",
-    "@meshsdk/core": "1.9.0-beta.25",
-    "@meshsdk/core-cst": "1.9.0-beta.25",
+    "@meshsdk/core": "1.9.0-beta.35",
+    "@meshsdk/core-cst": "1.9.0-beta.35",
     "dotenv": "^16.4.7"
   }
 }

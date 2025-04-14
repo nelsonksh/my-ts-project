@@ -36,29 +36,28 @@ async function buildTx() {
     const mintRedeemer = builtinByteString(tokenNameHex)
 
     const tx = await txBuilder
+        .txInCollateral(userUtxos[0].input.txHash, userUtxos[0].input.outputIndex)
+        // existing index utxo
         .spendingPlutusScriptV3()
-        // .readOnlyTxInReference("4df3ebc0592b39124c5cc3a1cf680a5d7ac393531dd308e34ee499fbad7257e7", 7)
         .txIn("a4f8080e8e34992977fae292c0f5d843c6c78f837fa69c624e66b6aab868745e", 0)
-        // .spendingReferenceTxInInlineDatumPresent()
         .txInInlineDatumPresent()
         .spendingTxInReference("4df3ebc0592b39124c5cc3a1cf680a5d7ac393531dd308e34ee499fbad7257e7", 7)
-        // .spen
-        .txInRedeemerValue(conStr0([]))
+        .txInRedeemerValue(conStr0([]), "JSON")
         // index token
         .mintPlutusScriptV3()
         .mint("1", policyId, "20")
-        .mintTxInReference("4df3ebc0592b39124c5cc3a1cf680a5d7ac393531dd308e34ee499fbad7257e7", 7)
-        .mintRedeemerValue(mintRedeemer)
+        .mintTxInReference("8a3a9c393bec05d40b73ed459a10a5c9c7a11f197c88d1aaca48080a2e48e7c5", 1)
+        .mintRedeemerValue(mintRedeemer, "JSON")
         // global state
         .mintPlutusScriptV3()
         .mint("1", policyId, "313030"+tokenNameHex)
-        .mintTxInReference("4df3ebc0592b39124c5cc3a1cf680a5d7ac393531dd308e34ee499fbad7257e7", 7)
-        .mintRedeemerValue(mintRedeemer)
+        .mintTxInReference("8a3a9c393bec05d40b73ed459a10a5c9c7a11f197c88d1aaca48080a2e48e7c5", 1)
+        .mintRedeemerValue(mintRedeemer, "JSON")
         // user token
         .mintPlutusScriptV3()
         .mint("1", policyId, "323232"+tokenNameHex)
-        .mintTxInReference("4df3ebc0592b39124c5cc3a1cf680a5d7ac393531dd308e34ee499fbad7257e7", 7)
-        .mintRedeemerValue(mintRedeemer)
+        .mintTxInReference("8a3a9c393bec05d40b73ed459a10a5c9c7a11f197c88d1aaca48080a2e48e7c5", 1)
+        .mintRedeemerValue(mintRedeemer, "JSON")
         // index validator
         .txOut(
             indexAddress,
@@ -72,7 +71,7 @@ async function buildTx() {
         .txOutInlineDatumValue(conStr0([
             builtinByteString("67656e65736973"),
             builtinByteString(tokenNameHex)
-        ]))
+        ]), "JSON")
         .txOut(
             indexAddress,
             [
@@ -85,7 +84,7 @@ async function buildTx() {
         .txOutInlineDatumValue(conStr0([
             builtinByteString(tokenNameHex),
             builtinByteString("67756c6c6130")
-        ]))
+        ]), "JSON")
         // global state validator
         .txOut(
             globalStateAddress,
@@ -101,7 +100,7 @@ async function buildTx() {
             builtinByteString(tokenNameHex),
             list([]),
             builtinByteString("20")
-        ]))
+        ]), "JSON")
         // user address
         .txOut(
             userAddress,
