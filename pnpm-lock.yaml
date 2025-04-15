@@ -420,7 +420,6 @@ packages:
 
   '@harmoniclabs/cbor@1.3.0':
     resolution: {integrity: sha512-gzRqqcJL8sulc2/6iqRXZdWUCEeK3A+jwJ88sbVNzgk4IeMFQLSFg4Ck8ZBETu/W/q1zdknjNfJYyH1OxVriQA==}
-    deprecated: update to 1.6.0
 
   '@harmoniclabs/crypto@0.2.5':
     resolution: {integrity: sha512-t2saWMFWBx8tOHotiYTTfQKhPGpWT4AMLXxq3u0apShVXNV0vgL0gEgSMudBjES/wrKByCqa2xmU70gadz26hA==}
